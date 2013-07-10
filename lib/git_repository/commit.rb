@@ -47,7 +47,7 @@ module GitRepository::Commit
     if @repo.empty?
       ref = Rugged::Reference.create(@repo, 'refs/heads/master', commit_oid)
     else
-      @repo.head.target = commit_oid
+      @repo.head.set_target commit_oid
     end
 
     # TODO: Use those model operations in the correct place:
@@ -58,14 +58,16 @@ module GitRepository::Commit
     block.call(commit_oid) if block_given?
 
     commit_oid
+=begin
   rescue => e
     if old_head
-      @repo.head.target = old_head
+      @repo.head.set_target old_head
     else
       @repo.head.delete!
     end
 
     raise e
+=end
   end
 
 

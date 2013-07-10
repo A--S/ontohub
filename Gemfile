@@ -72,7 +72,7 @@ gem 'ruby-graphviz', "~> 1.0.8"
 gem "faker", "~> 1.1.2"
 
 # Git
-gem 'rugged', '0.17.0.b7' # has an encoding bug.
+gem 'rugged', '0.18.0.b1' # has an encoding bug.
 gem 'diffy'
 
 group :test do
