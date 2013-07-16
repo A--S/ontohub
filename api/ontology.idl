@@ -1,27 +1,27 @@
 // An ontology base.
 interface OntologyBase {
 
-    Project  selectProject(in string byIri, in string byName);
-    Project  selectProjectByIri(in string byIri);                      // Derived
-    Project  selectProjectByName(in string byName);                    // Derived
-    string   insertProject(in Project project);
-    void     deleteProject(in Project project);
+    Repository  selectRepository(in string byIri, in string byName);
+    Repository  selectRepositoryByIri(in string byIri);                      // Derived
+    Repository  selectRepositoryByName(in string byName);                    // Derived
+    string   insertRepository(in Repository repository);
+    void     deleteRepository(in Repository repository);
 
-    Ontology[] selectOntologies(in string byIri, in string byName, in string byCategory, in string byGroup, in string byPrefix, in Language byLanguage, in Project byProject, in string bySymbolName);
+    Ontology[] selectOntologies(in string byIri, in string byName, in string byCategory, in string byGroup, in string byPrefix, in Language byLanguage, in Repository byRepository, in string bySymbolName);
     Ontology[] selectOntologiesByIri(in string byIri);                 // Derived
     Ontology[] selectOntologiesByName(in string byName);               // Derived
     Ontology[] selectOntologiesByCategory(in string byCategory);       // Derived
     Ontology[] selectOntologiesByGroup(in string byGroup);             // Derived
     Ontology[] selectOntologiesByPrefix(in string byPrefix);           // Derived
     Ontology[] selectOntologiesByLanguage(in Language byLanguage);     // Derived
-    Ontology[] selectOntologiesByProject(in Project byProject);        // Derived
+    Ontology[] selectOntologiesByRepository(in Repository byRepository);        // Derived
     Ontology[] selectOntologiesBySymbolName(in string bySymbolName);   // Derived
     Ontology[] selectOntologies();                                     // Derived
 
 }
 
-// A project as a set of mutually complementary ontologies.
-interface Project {
+// A repository as a set of mutually complementary ontologies.
+interface Repository {
 
     Ontology[] selectOntologiesByIri(in string byIri);                 // Derived
     Ontology[] selectOntologiesByName(in string byName);               // Derived
@@ -59,7 +59,7 @@ interface Ontology {
     string[]         getGroups();
     string[]         getPrefixes();
     Language         getLanguage();
-    Project          getProject();
+    Repository       getRepository();
 
     void             set(in string name, in string[] categories, in string[] groups, in string[] prefixes, in Language laguage);
     void             setName(in string name);                          // Derived
