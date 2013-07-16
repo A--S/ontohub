@@ -54,7 +54,7 @@ interface Ontology {
     string           insertVersion(in OntologyVersion version);
     void             deleteVersion(in OntologyVersion version);
 
-    string[]         getName();
+    string           getName();
     string[]         getCategories();
     string[]         getGroups();
     string[]         getPrefixes();
@@ -102,3 +102,10 @@ interface Entry {
 }
 
 
+interface Language {
+  // to be done
+}
+
+interface OntologyMetrics {
+  // to be done
+}
